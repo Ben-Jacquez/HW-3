@@ -20,11 +20,34 @@
 // var specialNums = confirm("Would you like special characters")
 
 
-
-
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+function generatePassword() {
+  var password = "";
+  var passwordLength = prompt("How many characters woudld you like your password to be?")
+  if (passwordLength < 8 || passwordLength > 128);
+  return 
+}
+
+var passwordLowercase = confirm("Would you like to include lowercase letters?");
+var passwordUppercase = confirm("Would you like to include uppercase letters?")
+var passwordNumbers = confirm("Would you like to include numbers?");
+var passwordSpecial = confirm("Would you like to include special characters?")
+var passwordCharacters = "";
+
+if (passwordLowercase) {
+  passwordCharacters += "abcdefghijklmnopqrstuvwxyz";
+}
+if (passwordUppercase) {
+  passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+}
+if (passwordNumbers) {
+  passwordCharacters += "0123456789";
+}
+if (passwordSpecial) {
+  passwordCharacters += "~!@#$%^&*?";
+}
 
 // Write password to the #password input
 function writePassword() {
