@@ -10,6 +10,7 @@ var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '?']
 var possibleCharacters = []
 var passwordArray = []
 
+// upon start prompt the users number of characters, then hold that in a variable
 function passwordOptions() {
   let characters = parseInt(
     prompt("How many characters would you like your password to be?")
@@ -22,6 +23,7 @@ function passwordOptions() {
     let passwordNumbers = confirm("Would you like to include numbers?");
     let passwordSpecial = confirm("Would you like to include special characters?");
 
+// after validation create variables for character selections
     let options = {
       strength: characters,
       passwordLowercase: lowercase,
@@ -36,11 +38,14 @@ function passwordOptions() {
     }
   }
 
+// after validation is complete start pushing the selected characters into possible chars array
   function generatePasswordz() {
-    let userPasswordChoices = passwordOptions()
+    console.log("test");
+    let userPasswordChoices = passwordOptions();
     let userChoice = "";
     let password = "";
 
+// validate that at least one option was selected
     if (userPasswordChoices.passwordLowercase) {
       userChoice += lowercase.join("");
     }
@@ -53,11 +58,16 @@ function passwordOptions() {
     if (userPasswordChoices.passwordSpecial) {
       userChoice =+ special.join("");
     }
-  }
+    else {
+      alert("Must accept at least 1 character type");
+    }
+
+For (let i = 0; i < userPasswordChoices.strength; i++) {
+  let random = math.floor(math.random() * userChoice.length);
+  password += userChoice.charAt(random);
+}
 
 // after validation create variables for character selections
-
-
   return "Generated Password will go here";
 }
 
@@ -73,27 +83,12 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-
-// upon game start prompt the users number of characters, then hold that in a variable
-// var chars = []
-
-
-
-//function getInput() {
-// chars = prompt("How many characters would you like in your password?")
-//}
-
-
-
-
-
 // validate that at least one option was selected
 //if (!passwordLowercase && !passwordUppercase && !passwordNumbers && !passwordSpecial) {
 //  alert("You need to select at least one type of character.");
 //return generatePassword()  
 //}
 
-// after validation is complete start pushing the selected characters into possible chars array
 
 //if (passwordLowercase) {
 // passwordCharacters.contact(passwordLowercase)
