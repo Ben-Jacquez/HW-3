@@ -31,18 +31,21 @@ if (characters >= 8 && characters <= 128) {
   };
   return options;
 
+  // Only alerts when character length selection is not between 8 and 128
 } else {
   alert("Must be between 8 and 128 characters")
 }
 }
   
+// main function that joins selected arrays into the array i will be pulling the generated password from
 function generatePassword() {
 // after validation create variables for character selections
   let userPasswordChoices = passwordOptions();
   let userChoice = "";
   let password = "";
 
-// validate that at least one option was selected
+// after validation is complete start pushing the selected characters into the userChoice array
+// only pushes if the character option was selected from the prompts
   if (userPasswordChoices.passwordLowercase) {
       userChoice += lowercase.join("");
   }
@@ -61,10 +64,11 @@ function generatePassword() {
     let random = Math.floor(Math.random() * userChoice.length);
     password += userChoice.charAt(random);
   }
+  // returns the generated password 
   return password;
 }
   
-// Write password to the #password input
+// Write password to the #password input (puts the returned password input into the text box on the center of the screen)
 function writePassword() {
   
   var finalPassword = generatePassword();
